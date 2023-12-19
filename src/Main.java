@@ -1,3 +1,5 @@
+import javax.swing.*;
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,6 +10,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException  {
+        System.out.println();
         List<Film> Films = new LinkedList<Film>();
         menuPrincipale(Films);
     }
@@ -20,6 +23,7 @@ public class Main {
     }
 
     public static void menuPrincipale(List<Film> Films) throws  IOException {
+        System.out.println("***************************************\n");
         System.out.println("Comment souhaitez vous trier les informations :\n"+
                             "1. Charger les données\n"+
                             "2. trier les données\n"+
@@ -27,6 +31,7 @@ public class Main {
                             "4. Rechercher un film\n"+
                             "5. Suppresion un à un\n"+
                             "6. Sauvergarder\n");
+        System.out.println("***************************************\n");
 
         String choix = Clavier.lireString();
         switch (choix) {
@@ -37,7 +42,6 @@ public class Main {
                 triFilms(Films);
                 break;
             case "3":
-                //filtrerFilms(Films);
                 break;
             case "4":
                 //rechercherFilm(Films);
@@ -56,8 +60,8 @@ public class Main {
     }
 
     public static void chargerDonnees(List<Film> Films) throws IOException {
-        String[] bases = {"IMDbmoviesCUT100", "IMDbnmoviesCUT1000", "IMDbmoviesCUT1000.tsv",
-                          "IMDbmoviesCUT40000.tsv", "IMDbmoviesFULL.tsv"};
+        String[] bases = {"IMDbmoviesCUT100", "IMDbmoviesCUT1000", "IMDbmoviesCUT10000",
+                          "IMDbmoviesCUT40000", "IMDbmoviesFULL"};
 
         int i =0;
         for (String base : bases) {
@@ -79,6 +83,7 @@ public class Main {
         tsvReader.close();
 
         affichageFilms(Films);
+        menuPrincipale(Films);
     }
 
     public static  void triFilms(List<Film> Films) throws IOException {
@@ -99,6 +104,8 @@ public class Main {
         System.out.println("13. Par tri Java par année");
         int choix = Clavier.lireInt();
         Tri.sortJava(Films, choix);
+        affichageFilms(Films);
+        menuPrincipale(Films);
     }
 
 

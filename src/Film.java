@@ -2,7 +2,7 @@ import java.util.Comparator;
 
 import java.io.Serializable;
 
-public class Film {
+public class Film implements Serializable {
     // ++++++++++++++++++++++++++++++++++++++
     // Attributs
 
@@ -23,6 +23,7 @@ public class Film {
     private String	avg_vote;
     private String	votes;
     private String	reste;
+
 
     // ++++++++++++++++++++++++++++++++++++++
     // Constructeur
@@ -65,9 +66,6 @@ public class Film {
             return f1.year - f2.year; // assuming 'year' is a int field in Film class
         }
     };
-
-
-
 
 
     // ++++++++++++++++++++++++++++++++++++++
