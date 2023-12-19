@@ -20,7 +20,9 @@ public class Tri {
             default:
                 break;
         }
-        switch
+        switch (choix) {
+
+        }
     }
 
     public static void triSelection(List<Film> films, Comparator<Film> comparator){
