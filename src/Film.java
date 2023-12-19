@@ -83,8 +83,8 @@ public class Film implements Serializable {
 				+String.format("%-20s", actors)
 				+String.format("%-20s", description)
 				+String.format("%-20s", avg_vote)
-				+String.format("%-10s", votes)*/
-                +"\n"
-        );
+				+String.format("%-10s", votes)
+                +String.format("%s", reste)*/
+                +"\n");
     }
 }

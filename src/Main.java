@@ -1,5 +1,3 @@
-import javax.swing.*;
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,27 +9,29 @@ public class Main {
 
     public static void main(String[] args) throws IOException  {
         System.out.println();
-        List<Film> Films = new LinkedList<Film>();
+        List<Film> Films = new LinkedList<>();
         menuPrincipale(Films);
     }
 
-
     public static void affichageFilms(List<Film> Films) {
+
         for (Film film : Films) {
             System.out.println(film);
         }
     }
 
     public static void menuPrincipale(List<Film> Films) throws  IOException {
-        System.out.println("***************************************\n");
-        System.out.println("Comment souhaitez vous trier les informations :\n"+
-                            "1. Charger les données\n"+
-                            "2. trier les données\n"+
-                            "3. Filtrer les données\n"+
-                            "4. Rechercher un film\n"+
-                            "5. Suppresion un à un\n"+
-                            "6. Sauvergarder\n");
-        System.out.println("***************************************\n");
+        System.out.println("""
+                \n***************************************
+                Comment souhaitez vous trier les informations :
+                1. Charger les données
+                2. trier les données
+                3. Filtrer les données
+                4. Rechercher un film
+                5. Suppresion un à un
+                6. Sauvergarder
+                ***************************************\n
+                """);
 
         String choix = Clavier.lireString();
         switch (choix) {
@@ -42,6 +42,7 @@ public class Main {
                 triFilms(Films);
                 break;
             case "3":
+                //
                 break;
             case "4":
                 //rechercherFilm(Films);
@@ -73,8 +74,7 @@ public class Main {
         System.out.println("Chargement des données");
         BufferedReader tsvReader = new BufferedReader(new FileReader(bases[choixbase-1]+".tsv"));
 
-        String row=new String();
-        row = tsvReader.readLine();
+        String row = tsvReader.readLine();
         while(tsvReader.ready()) {
             row = tsvReader.readLine();
             String[] data= row.split("\t", 17);

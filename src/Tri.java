@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 
 public class Tri {
-    public static void sortJava(List<Film> Films, int choix) {
+    public static void sortJava(List<Film> Films, int choix) throws IOException {
         switch (choix) {
             case 1:
                 triSelection(Films, Film.compareTitle);
@@ -19,6 +20,7 @@ public class Tri {
             default:
                 break;
         }
+        switch
     }
 
     public static void triSelection(List<Film> films, Comparator<Film> comparator){
