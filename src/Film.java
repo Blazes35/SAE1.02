@@ -72,7 +72,8 @@ public class Film {
     // ++++++++++++++++++++++++++++++++++++++
     // Affichage
     // ++++++++++++++++++++++++++++++++++++++
-    public String toString()    {
+    public String toString()
+    {
         return (String.format("%-20s", title)
 				+String.format("%-6s", year)
 				/*+String.format("%-20s", genre)

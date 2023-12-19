@@ -40,8 +40,8 @@ public class Main {
     }
 
     public static void chargerDonnees(int choix, List<Film> Films) throws IOException {
-        String[] bases = {"IMDbmoviesCUT100", "IMDbnamesCUT1000", "IMDbratingsCUT1000",
-                          "IMDbrateCUT40000", "ImdbtitleprinciplesFULL"};
+        String[] bases = {"IMDbmoviesCUT100", "IMDbnmoviesCUT1000", "IMDbmoviesCUT1000.tsv",
+                          "IMDbmoviesCUT40000.tsv", "IMDbmoviesFULL.tsv"};
 
         int i =0;
         for (String base : bases) {
@@ -64,4 +64,23 @@ public class Main {
 
         affichageFilms(Films);
     }
+
+    /*System.out.println("Comment souhaitez vous trier les informations :");
+                System.out.println("1. Par titre");
+                System.out.println("2. Par annÃ©e de rÃ©alisation");
+                System.out.println("3. Par genre");
+                System.out.println("4. Par durÃ©e");
+                System.out.println("5. Par pays de production");
+                System.out.println("6. Par langue");
+                System.out.println("7. Par rÃ©alisateur");
+                System.out.println("8. Par scÃ©nariste");
+                System.out.println("9. Par acteur");
+                System.out.println("10. Par Description");
+                System.out.println("11. Par nombre de votes de spectateurs");
+                System.out.println("12. Par note");*/
+
+
+
+
 }
+
