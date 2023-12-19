@@ -6,23 +6,23 @@ public class Film {
     // ++++++++++++++++++++++++++++++++++++++
     // Attributs
 
-    String 	imdb_title_id;
-    String	title;
-    String	original_title;
-    int		year;
-    String	date_published;
-    String	genre;
-    String	duration;
-    String	country;
-    String	language;
-    String	director;
-    String	writer;
-    String	production_company;
-    String	actors;
-    String	description;
-    String	avg_vote;
-    String	votes;
-    String	reste;
+    private String 	imdb_title_id;
+    private String	title;
+    private String	original_title;
+    private int		year;
+    private String	date_published;
+    private String	genre;
+    private String	duration;
+    private String	country;
+    private String	language;
+    private String	director;
+    private String	writer;
+    private String	production_company;
+    private String	actors;
+    private String	description;
+    private String	avg_vote;
+    private String	votes;
+    private String	reste;
 
     // ++++++++++++++++++++++++++++++++++++++
     // Constructeur
@@ -56,6 +56,7 @@ public class Film {
         public int compare(Film f1, Film f2) {
             return f1.title.compareToIgnoreCase(f2.title); // assuming 'title' is a String field in Film class
         }
+
     };
 
     public static Comparator<Film> compareYear = new Comparator<Film>() {

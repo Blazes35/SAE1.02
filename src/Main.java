@@ -4,23 +4,14 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class Main {
 
     public static void main(String[] args) throws IOException  {
         List<Film> Films = new LinkedList<Film>();
-        int choix=menuPrincipale();
-        chargerDonnees(choix, Films);
+        menuPrincipale(Films);
     }
 
-    public static void sortJavaByTitle(List<Film> Films) {
-        //Replace Collections.sort(Films, comparators) by Films.sort(comparators)
-        Films.sort(Film.compareTitle);
-    }
-
-    public static void sortJavaByYear(List<Film> Films) {
-        //Replace Collections.sort(Films, comparators) by Films.sort(comparators)
-        Films.sort(Film.compareYear);
-    }
 
     public static void affichageFilms(List<Film> Films) {
         for (Film film : Films) {
@@ -28,7 +19,7 @@ public class Main {
         }
     }
 
-    public static int menuPrincipale() {
+    public static void menuPrincipale(List<Film> Films) throws  IOException {
         System.out.println("Comment souhaitez vous trier les informations :\n"+
                             "1. Charger les données\n"+
                             "2. trier les données\n"+
@@ -36,10 +27,35 @@ public class Main {
                             "4. Rechercher un film\n"+
                             "5. Suppresion un à un\n"+
                             "6. Sauvergarder\n");
-        return Clavier.lireInt();
+
+        String choix = Clavier.lireString();
+        switch (choix) {
+            case "1":
+                chargerDonnees(Films);
+                break;
+            case "2":
+                triFilms(Films);
+                break;
+            case "3":
+                //filtrerFilms(Films);
+                break;
+            case "4":
+                //rechercherFilm(Films);
+                break;
+            case "5":
+                //supprimerFilm(Films);
+                break;
+            case "6":
+                //sauvegarderFilms(Films);
+                break;
+            default:
+                System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 6\n");
+                menuPrincipale(Films);
+                break;
+        }
     }
 
-    public static void chargerDonnees(int choix, List<Film> Films) throws IOException {
+    public static void chargerDonnees(List<Film> Films) throws IOException {
         String[] bases = {"IMDbmoviesCUT100", "IMDbnmoviesCUT1000", "IMDbmoviesCUT1000.tsv",
                           "IMDbmoviesCUT40000.tsv", "IMDbmoviesFULL.tsv"};
 
@@ -65,6 +81,54 @@ public class Main {
         affichageFilms(Films);
     }
 
+    public static  void triFilms(List<Film> Films) throws IOException {
+        System.out.println("Comment souhaitez vous trier les informations :");
+        System.out.println("1. Par titre");
+        System.out.println("2. Par année de réalisation");
+        System.out.println("3. Par genre");
+        System.out.println("4. Par durée");
+        System.out.println("5. Par pays de production");
+        System.out.println("6. Par langue");
+        System.out.println("7. Par réalisateur");
+        System.out.println("8. Par scénariste");
+        System.out.println("9. Par acteur");
+        System.out.println("10. Par Description");
+        System.out.println("11. Par nombre de votes de spectateurs");
+        System.out.println("12. Par note");
+        System.out.println("13. Par tri Java par titre");
+        System.out.println("13. Par tri Java par année");
+        int choix = Clavier.lireInt();
+        Tri.sortJava(Films, choix);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*System.out.println("Comment souhaitez vous trier les informations :");
                 System.out.println("1. Par titre");
                 System.out.println("2. Par annÃ©e de rÃ©alisation");
@@ -78,9 +142,6 @@ public class Main {
                 System.out.println("10. Par Description");
                 System.out.println("11. Par nombre de votes de spectateurs");
                 System.out.println("12. Par note");*/
-
-
-
 
 }
 
