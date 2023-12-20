@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 
 public class Main {
@@ -46,14 +47,14 @@ public class Main {
                 filtrerFilms(Films);
                 break;
             case "4":
-                //rechercherFilm(Films);
+                Recherche.rechercheLineaire(Films, Clavier.lireString());
                 break;
             case "5":
                 affichageFilms(Films);
                 menuPrincipale(Films);
                 break;
             case "6":
-                //supprimerFilm(Films);
+                supprimerFilm(Films);
                 break;
             case "7":
                 //sauvegarderFilms(Films);
@@ -67,7 +68,7 @@ public class Main {
 
     public static void chargerDonnees(List<Film> Films) throws IOException {
         String[] bases = {"IMDbmoviesCUT100", "IMDbmoviesCUT1000", "IMDbmoviesCUT10000",
-                          "IMDbmoviesCUT40000", "IMDbmoviesFULL"};
+                "IMDbmoviesCUT40000", "IMDbmoviesFULL"};
 
         int i =0;
         for (String base : bases) {
@@ -100,17 +101,12 @@ public class Main {
         4. Par durée
         5. Par pays de production
         6. Par langue
-        7. Par réalisateur
-        8. Par scénariste
-        9. Par acteur
-        10. Par Description
-        11. Par nombre de votes de spectateurs
-        12. Par note
-        13. Par tri Java par titre
-        13. Par tri Java par année
+        7. Par nombre de votes
+        8. Par note
+        9. Par tri Java par titre
+        10. Par tri Java par année
         """);
-        int choix = Clavier.lireInt();
-        Tri.sortJava(Films, choix);
+        Tri.sortJava(Films);
         affichageFilms(Films);
         menuPrincipale(Films);
     }
@@ -178,6 +174,24 @@ public class Main {
                 break;
         }
 
+        affichageFilms(Films);
+        menuPrincipale(Films);
+    }
+
+    public static void supprimerFilm(List<Film> Films) throws IOException {
+        System.out.println("""
+            \n***************************************
+            Souhaitez vous supprimer les informations stockées :
+            1. Oui
+            2. Non
+            ***************************************\n
+            """);
+        int choix = Clavier.lireInt();
+        ListIterator<Film> iterator = Films.listIterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            iterator.remove();
+        }
         affichageFilms(Films);
         menuPrincipale(Films);
     }

@@ -3,25 +3,43 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Tri {
-    public static void sortJava(List<Film> Films, int choix) throws IOException {
+    public static void sortJava(List<Film> Films) throws IOException {
+        String choix = Clavier.lireString();
         switch (choix) {
-            case 1:
+            case "1":
                 triSelection(Films, Film.compareTitle);
                 break;
-            case 2:
+            case "2":
                 triSelection(Films, Film.compareYear);
                 break;
-            case 12:
+            case "3":
+                triSelection(Films, Film.compareGenre);
+                break;
+            case "4":
+                triSelection(Films, Film.compareDuration);
+                break;
+            case "5":
+                triSelection(Films, Film.compareCountry);
+                break;
+            case "6":
+                triSelection(Films, Film.compareLanguage);
+                break;
+            case "7":
+                triSelection(Films, Film.compareAvg_vote);
+                break;
+            case "8":
+                triSelection(Films, Film.compareVotes);
+                break;
+            case "9":
                 Films.sort(Film.compareTitle);
                 break;
-            case 13:
+            case "10":
                 Films.sort(Film.compareYear);
                 break;
             default:
+                System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 10\n");
+                sortJava(Films);
                 break;
-        }
-        switch (choix) {
-
         }
     }
 

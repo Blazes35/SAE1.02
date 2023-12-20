@@ -47,14 +47,18 @@ public class Filtre {
 
     public static void filterDuration(List<Film> Films) {
         System.out.println(type);
-        switch (Clavier.lireString()) {
+        String choix = Clavier.lireString();
+        int valeur;
+        switch (choix) {
             case "1":
                 System.out.println("Filtrer les films durant au plus (en minutes): ");
-                Films.removeIf(f -> f.getDuration() > Clavier.lireInt());
+                valeur = Clavier.lireInt();
+                Films.removeIf(f -> f.getDuration() > valeur);
                 break;
             case "2":
                 System.out.println("Filtrer les films durant au moins (en minutes): ");
-                Films.removeIf(f -> f.getDuration() < Clavier.lireInt());
+                valeur = Clavier.lireInt();
+                Films.removeIf(f -> f.getDuration() < valeur);
                 break;
             case "3":
                 System.out.println("Filtrer les films durant entre:\ndurée 1: ");
@@ -96,14 +100,18 @@ public class Filtre {
 
     public static void filterVotes(List<Film> Films) {
         System.out.println(type);
-        switch (Clavier.lireString()) {
+        String choix = Clavier.lireString();
+        int valeur;
+        switch (choix) {
             case "1":
                 System.out.println("Filtrer les films ayant un nombre de vote au plus: ");
-                Films.removeIf(f -> f.getVotes() > Clavier.lireInt());
+                valeur = Clavier.lireInt();
+                Films.removeIf(f -> f.getVotes() > valeur);
                 break;
             case "2":
                 System.out.println("Filtrer les films après ou pendant l'année: ");
-                Films.removeIf(f -> f.getVotes() < Clavier.lireInt());
+                valeur = Clavier.lireInt();
+                Films.removeIf(f -> f.getVotes() < valeur);
                 break;
             case "3":
                 System.out.println("Filtrer les films entre:\nAnnée 1: ");
@@ -121,14 +129,18 @@ public class Filtre {
 
     public static void filterAvg_vote(List<Film> Films) {
         System.out.println(type);
-        switch (Clavier.lireString()) {
+        String choix = Clavier.lireString();
+        int valeur;
+        switch (choix) {
             case "1":
                 System.out.println("Filtrer les films une notes inférieur ou égal à : ");
-                Films.removeIf(f -> f.getAvg_vote() > Clavier.lireFloat());
+                valeur = Clavier.lireInt();
+                Films.removeIf(f -> f.getAvg_vote() > valeur);
                 break;
             case "2":
                 System.out.println("Filtrer les films une notes supérieur ou égal à :");
-                Films.removeIf(f -> f.getAvg_vote() < Clavier.lireFloat());
+                valeur = Clavier.lireInt();
+                Films.removeIf(f -> f.getAvg_vote() < valeur);
                 break;
             case "3":
                 System.out.println("Filtrer les films noté entre:\nmoyenne 1: ");

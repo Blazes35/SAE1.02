@@ -65,15 +65,50 @@ public class Film implements Serializable {
         }
     };
 
+    public static Comparator<Film> compareGenre = new Comparator<Film>() {
+        public int compare(Film f1, Film f2) {
+            return f1.genre.compareToIgnoreCase(f2.genre); // assuming 'genre' is a String field in Film class
+        }
+    };
+
+    public static Comparator<Film> compareDuration = new Comparator<Film>() {
+        public int compare(Film f1, Film f2) {
+            return f1.duration - f2.duration; // assuming 'duration' is a int field in Film class
+        }
+    };
+
+    public static Comparator<Film> compareCountry = new Comparator<Film>() {
+        public int compare(Film f1, Film f2) {
+            return f1.country.compareToIgnoreCase(f2.country); // assuming 'country' is a String field in Film class
+        }
+    };
+
+    public static Comparator<Film> compareLanguage = new Comparator<Film>() {
+        public int compare(Film f1, Film f2) {
+            return f1.language.compareToIgnoreCase(f2.language); // assuming 'language' is a String field in Film class
+        }
+    };
+
+    public static Comparator<Film> compareAvg_vote = new Comparator<Film>() {
+        public int compare(Film f1, Film f2) {
+            return (int) (f1.avg_vote - f2.avg_vote); // assuming 'avg_vote' is a float field in Film class
+        }
+    };
+
+    public static Comparator<Film> compareVotes = new Comparator<Film>() {
+        public int compare(Film f1, Film f2) {
+            return f1.votes - f2.votes; // assuming 'votes' is a int field in Film class
+        }
+    };
+
 
     // ++++++++++++++++++++++++++++++++++++++
     // Affichage
     // ++++++++++++++++++++++++++++++++++++++
-    public String toString()
-    {
+    public String toString() {
         return (String.format("%-20s", title)
 				+String.format("%-6s", year)
-				/*+String.format("%-20s", genre)
+				+String.format("%-20s", genre)
 				+String.format("%-6s", duration)
 				+String.format("%-20s", country)
 				+String.format("%-20s", director)
@@ -82,7 +117,7 @@ public class Film implements Serializable {
 				+String.format("%-20s", description)
 				+String.format("%-20s", avg_vote)
 				+String.format("%-10s", votes)
-                +String.format("%s", reste)*/
+                +String.format("%s", reste)
                 +"\n");
     }
 
