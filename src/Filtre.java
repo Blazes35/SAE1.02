@@ -9,7 +9,9 @@ public class Filtre {
                             3. entre deux valeurs comprises
                             """;
 
-    public static void filterTitle(List<Film> Films, String valeur) {
+    public static void filterTitle(List<Film> Films) {
+        System.out.println("Filtrer les films contenant: ");
+        String valeur = Clavier.lireLigne();
         Films.removeIf(f -> !f.getTitle().contains(valeur));
     }
 
@@ -41,7 +43,9 @@ public class Filtre {
         }
     }
 
-    public static void filterGenre(List<Film> Films, String valeur) {
+    public static void filterGenre(List<Film> Films) {
+        System.out.println("Filtrer les films contenant: ");
+        String valeur = Clavier.lireLigne();
         Films.removeIf(f -> !f.getGenre().contains(valeur));
     }
 
@@ -74,27 +78,39 @@ public class Filtre {
         }
     }
 
-    public static void filterCountry(List<Film> Films, String valeur) {
+    public static void filterCountry(List<Film> Films) {
+        System.out.println("Filtrer les films contenant: ");
+        String valeur = Clavier.lireLigne();
         Films.removeIf(f -> !f.getCountry().contains(valeur));
     }
 
-    public static void filterLanguage(List<Film> Films, String valeur) {
+    public static void filterLanguage(List<Film> Films) {
+        System.out.println("Filtrer les films contenant: ");
+        String valeur = Clavier.lireLigne();
         Films.removeIf(f -> !f.getLanguage().contains(valeur));
     }
 
-    public static void filterDirector(List<Film> Films, String valeur) {
+    public static void filterDirector(List<Film> Films) {
+        System.out.println("Filtrer les films contenant: ");
+        String valeur = Clavier.lireLigne();
         Films.removeIf(f -> !f.getDirector().contains(valeur));
     }
 
-    public static void filterWriter(List<Film> Films, String valeur) {
+    public static void filterWriter(List<Film> Films) {
+        System.out.println("Filtrer les films contenant: ");
+        String valeur = Clavier.lireLigne();
         Films.removeIf(f -> !f.getWriter().contains(valeur));
     }
 
-    public static void filterActors(List<Film> Films, String valeur) {
+    public static void filterActors(List<Film> Films) {
+        System.out.println("Filtrer les films contenant: ");
+        String valeur = Clavier.lireLigne();
         Films.removeIf(f -> !f.getActors().contains(valeur));
     }
 
-    public static void filterDescription(List<Film> Films, String valeur) {
+    public static void filterDescription(List<Film> Films) {
+        System.out.println("Filtrer les films contenant: ");
+        String valeur = Clavier.lireLigne();
         Films.removeIf(f -> !f.getDescription().contains(valeur));
     }
 
@@ -155,6 +171,5 @@ public class Filtre {
                 break;
         }
     }
-
 
 }

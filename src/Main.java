@@ -39,15 +39,22 @@ public class Main {
         switch (choix) {
             case "1":
                 chargerDonnees(Films);
+                affichageFilms(Films);
+                menuPrincipale(Films);
                 break;
             case "2":
                 triFilms(Films);
+                affichageFilms(Films);
+                menuPrincipale(Films);
                 break;
             case "3":
                 filtrerFilms(Films);
+                affichageFilms(Films);
+                menuPrincipale(Films);
                 break;
             case "4":
                 Recherche.rechercheLineaire(Films, Clavier.lireString());
+                menuPrincipale(Films);
                 break;
             case "5":
                 affichageFilms(Films);
@@ -55,6 +62,8 @@ public class Main {
                 break;
             case "6":
                 supprimerFilm(Films);
+                affichageFilms(Films);
+                menuPrincipale(Films);
                 break;
             case "7":
                 //sauvegarderFilms(Films);
@@ -87,9 +96,6 @@ public class Main {
             Films.add(new Film(data));
         }
         tsvReader.close();
-
-        affichageFilms(Films);
-        menuPrincipale(Films);
     }
 
     public static void triFilms(List<Film> Films) throws IOException {
@@ -107,8 +113,6 @@ public class Main {
         10. Par tri Java par année
         """);
         Tri.sortChooser(Films);
-        affichageFilms(Films);
-        menuPrincipale(Films);
     }
 
     public static void filtrerFilms(List<Film> Films) throws IOException {
@@ -133,34 +137,34 @@ public class Main {
         String valeur;
         switch (choix) {
             case 1:
-                Filtre.filterTitle(Films, Clavier.lireString());
+                Filtre.filterTitle(Films);
                 break;
             case 2:
                 Filtre.filterYear(Films);
                 break;
             case 3:
-                Filtre.filterGenre(Films, Clavier.lireString());
+                Filtre.filterGenre(Films);
                 break;
             case 4:
                 Filtre.filterDuration(Films);
                 break;
             case 5:
-                Filtre.filterCountry(Films, Clavier.lireString());
+                Filtre.filterCountry(Films);
                 break;
             case 6:
-                Filtre.filterLanguage(Films, Clavier.lireString());
+                Filtre.filterLanguage(Films);
                 break;
             case 7:
-                Filtre.filterDirector(Films, Clavier.lireString());
+                Filtre.filterDirector(Films);
                 break;
             case 8:
-                Filtre.filterWriter(Films, Clavier.lireString());
+                Filtre.filterWriter(Films);
                 break;
             case 9:
-                Filtre.filterActors(Films, Clavier.lireString());
+                Filtre.filterActors(Films);
                 break;
             case 10:
-                Filtre.filterDescription(Films, Clavier.lireString());
+                Filtre.filterDescription(Films);
                 break;
             case 11:
                 Filtre.filterVotes(Films);
@@ -173,9 +177,6 @@ public class Main {
                 filtrerFilms(Films);
                 break;
         }
-
-        affichageFilms(Films);
-        menuPrincipale(Films);
     }
 
     public static void supprimerFilm(List<Film> Films) throws IOException {
@@ -192,8 +193,6 @@ public class Main {
             iterator.next();
             iterator.remove();
         }
-        affichageFilms(Films);
-        menuPrincipale(Films);
     }
 
 
