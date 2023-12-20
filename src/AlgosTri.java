@@ -29,7 +29,7 @@ public class AlgosTri {
 		if(AFFICHAGE) afficherTableau();
 		
 		
-		System.out.println("temps de tri par s�lection : " + (float) (stop - start)/1000000 +" ms\n");
+		System.out.println("temps de tri par sélection : " + (float) (stop - start)/1000000 +" ms\n");
 		
 		tableau=(int[]) copieTab.clone(); // on remet le tableau dans l'�tat initial
 		
@@ -92,41 +92,37 @@ public class AlgosTri {
 	
 	public static void fusionner(int[] tab, int g, int milieu, int d) {
 		int[] tab2= new int[d-g+1];
-		System.out.println((d-g+1));
-		
-		int i=g, j=milieu+1;
-		System.out.println(g+"   "+i+"   "+j+"    "+d);
-		int k=0;
-		
-		while(i<=milieu || j <= d) {
-			System.out.println("in");
-			if (tab[i]<=tab[j] && i<=milieu) {
+		int i=g, j=milieu+1, k=0;
+	
+		while(i<=milieu && j <= d) {
+			if (tab[i]<=tab[j]) {
 				tab2[k]=tab[i];
 				i++;
-			}else if (tab[i]>=tab[j]&& j<=d) {
+			} else {
 				tab2[k]=tab[j]; 
 				j++;
-			}else {
-				tab2[k]=tab[i];
-				i++;
 			}
 			k++;
 		}
-		
-		
-		
-		
-		
-		
-		System.out.println(i<=milieu && j <= d);
-		for (int values:tab2) {
-			System.out.print(" "+values);
-			
+	
+		// Copy the remaining elements of left subarray, if there are any
+		while (i <= milieu) {
+			tab2[k] = tab[i];
+			i++;
+			k++;
 		}
-		System.out.println();
-		/*for (i=0; i<=d-g+1;i++) {
-			tab[g+i]=tab2[i];
-		}*/
+	
+		// Copy the remaining elements of right subarray, if there are any
+		while (j <= d) {
+			tab2[k] = tab[j];
+			j++;
+			k++;
+		}
+	
+		// Copy back the merged elements to original array
+		for (i = g, k = 0; i <= d; i++, k++) {
+			tab[i] = tab2[k];
+		}
 	}
 
 }

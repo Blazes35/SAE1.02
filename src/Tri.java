@@ -1,13 +1,14 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class Tri {
-    public static void sortJava(List<Film> Films) throws IOException {
+    public static void sortChooser(List<Film> Films) throws IOException {
         String choix = Clavier.lireString();
         switch (choix) {
             case "1":
-                triSelection(Films, Film.compareTitle);
+                triFusion(Films);
                 break;
             case "2":
                 triSelection(Films, Film.compareYear);
@@ -38,7 +39,7 @@ public class Tri {
                 break;
             default:
                 System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 10\n");
-                sortJava(Films);
+                sortChooser(Films);
                 break;
         }
     }
@@ -56,6 +57,37 @@ public class Tri {
             Film temp = films.get(min_idx);
             films.set(min_idx, films.get(i));
             films.set(i, temp);
+        }
+    }
+
+    public static void triFusion(List<Film> films) {
+        if (films.size() > 1) {
+            List<Film> left = new ArrayList<>(films.subList(0, films.size() / 2));
+            List<Film> right = new ArrayList<>(films.subList(films.size() / 2, films.size()));
+
+            triFusion(left);
+            triFusion(right);
+            fusionner(films, left, right);
+        }
+    }
+
+    public static void fusionner(List<Film> films, List<Film> left, List<Film> right) {
+        int i = 0, j = 0, k = 0;
+
+        while (i < left.size() && j < right.size()) {
+            if (left.get(i).getTitle().compareTo(right.get(j).getTitle()) <= 0) {
+                films.set(k++, left.get(i++));
+            } else {
+                films.set(k++, right.get(j++));
+            }
+        }
+
+        while (i < left.size()) {
+            films.set(k++, left.get(i++));
+        }
+
+        while (j < right.size()) {
+            films.set(k++, right.get(j++));
         }
     }
 }

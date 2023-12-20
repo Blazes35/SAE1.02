@@ -106,7 +106,7 @@ public class Main {
         9. Par tri Java par titre
         10. Par tri Java par année
         """);
-        Tri.sortJava(Films);
+        Tri.sortChooser(Films);
         affichageFilms(Films);
         menuPrincipale(Films);
     }
