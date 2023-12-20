@@ -28,8 +28,9 @@ public class Main {
                 2. trier les données
                 3. Filtrer les données
                 4. Rechercher un film
-                5. Suppresion un à un
-                6. Sauvergarder
+                5. Afficher les données 
+                6. Suppresion un à un
+                7. Sauvergarder
                 ***************************************\n
                 """);
 
@@ -42,15 +43,19 @@ public class Main {
                 triFilms(Films);
                 break;
             case "3":
-                //
+                filtrerFilms(Films);
                 break;
             case "4":
                 //rechercherFilm(Films);
                 break;
             case "5":
-                //supprimerFilm(Films);
+                affichageFilms(Films);
+                menuPrincipale(Films);
                 break;
             case "6":
+                //supprimerFilm(Films);
+                break;
+            case "7":
                 //sauvegarderFilms(Films);
                 break;
             default:
@@ -86,24 +91,93 @@ public class Main {
         menuPrincipale(Films);
     }
 
-    public static  void triFilms(List<Film> Films) throws IOException {
-        System.out.println("Comment souhaitez vous trier les informations :");
-        System.out.println("1. Par titre");
-        System.out.println("2. Par année de réalisation");
-        System.out.println("3. Par genre");
-        System.out.println("4. Par durée");
-        System.out.println("5. Par pays de production");
-        System.out.println("6. Par langue");
-        System.out.println("7. Par réalisateur");
-        System.out.println("8. Par scénariste");
-        System.out.println("9. Par acteur");
-        System.out.println("10. Par Description");
-        System.out.println("11. Par nombre de votes de spectateurs");
-        System.out.println("12. Par note");
-        System.out.println("13. Par tri Java par titre");
-        System.out.println("13. Par tri Java par année");
+    public static void triFilms(List<Film> Films) throws IOException {
+        System.out.println("""
+        Comment souhaitez vous trier les informations :
+        1. Par titre
+        2. Par année de réalisation
+        3. Par genre
+        4. Par durée
+        5. Par pays de production
+        6. Par langue
+        7. Par réalisateur
+        8. Par scénariste
+        9. Par acteur
+        10. Par Description
+        11. Par nombre de votes de spectateurs
+        12. Par note
+        13. Par tri Java par titre
+        13. Par tri Java par année
+        """);
         int choix = Clavier.lireInt();
         Tri.sortJava(Films, choix);
+        affichageFilms(Films);
+        menuPrincipale(Films);
+    }
+
+    public static void filtrerFilms(List<Film> Films) throws IOException {
+        System.out.println("""
+        Comment souhaitez vous filtrer les informations :
+        1. Par titre
+        2. Par année de réalisation
+        3. Par genre
+        4. Par durée
+        5. Par pays de production
+        6. Par langue
+        7. Par réalisateur
+        8. Par scénariste
+        9. Par acteur
+        10. Par Description
+        11. Par nombre de votes de spectateurs
+        12. Par note
+        """);
+
+
+        int choix = Clavier.lireInt();
+        String valeur;
+        switch (choix) {
+            case 1:
+                Filtre.filterTitle(Films, Clavier.lireString());
+                break;
+            case 2:
+                Filtre.filterYear(Films);
+                break;
+            case 3:
+                Filtre.filterGenre(Films, Clavier.lireString());
+                break;
+            case 4:
+                Filtre.filterDuration(Films);
+                break;
+            case 5:
+                Filtre.filterCountry(Films, Clavier.lireString());
+                break;
+            case 6:
+                Filtre.filterLanguage(Films, Clavier.lireString());
+                break;
+            case 7:
+                Filtre.filterDirector(Films, Clavier.lireString());
+                break;
+            case 8:
+                Filtre.filterWriter(Films, Clavier.lireString());
+                break;
+            case 9:
+                Filtre.filterActors(Films, Clavier.lireString());
+                break;
+            case 10:
+                Filtre.filterDescription(Films, Clavier.lireString());
+                break;
+            case 11:
+                Filtre.filterVotes(Films);
+                break;
+            case 12:
+                Filtre.filterAvg_vote(Films);
+                break;
+            default:
+                System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 12\n");
+                filtrerFilms(Films);
+                break;
+        }
+
         affichageFilms(Films);
         menuPrincipale(Films);
     }

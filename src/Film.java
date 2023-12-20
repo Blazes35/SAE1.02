@@ -12,7 +12,7 @@ public class Film implements Serializable {
     private int		year;
     private String	date_published;
     private String	genre;
-    private String	duration;
+    private int     duration;
     private String	country;
     private String	language;
     private String	director;
@@ -20,8 +20,8 @@ public class Film implements Serializable {
     private String	production_company;
     private String	actors;
     private String	description;
-    private String	avg_vote;
-    private String	votes;
+    private float   avg_vote;
+    private int	    votes;
     private String	reste;
 
 
@@ -35,7 +35,7 @@ public class Film implements Serializable {
         year=Integer.parseInt(data[3]);
         date_published=data[4];
         genre=data[5];
-        duration=data[6];
+        duration= Integer.parseInt(data[6]);
         country=data[7];
         language=data[8];
         director=data[9];
@@ -43,8 +43,8 @@ public class Film implements Serializable {
         production_company=data[11];
         actors=data[12];
         description=data[13];
-        avg_vote=data[14];
-        votes=data[15];
+        avg_vote= Float.parseFloat(data[14]);
+        votes= Integer.parseInt(data[15]);
         reste=data[16];
     }
 
@@ -53,7 +53,6 @@ public class Film implements Serializable {
     // Comparateurs
     // ++++++++++++++++++++++++++++++++++++++
     public static Comparator<Film> compareTitle = new Comparator<Film>() {
-        @Override
         public int compare(Film f1, Film f2) {
             return f1.title.compareToIgnoreCase(f2.title); // assuming 'title' is a String field in Film class
         }
@@ -61,7 +60,6 @@ public class Film implements Serializable {
     };
 
     public static Comparator<Film> compareYear = new Comparator<Film>() {
-        @Override
         public int compare(Film f1, Film f2) {
             return f1.year - f2.year; // assuming 'year' is a int field in Film class
         }
@@ -86,5 +84,56 @@ public class Film implements Serializable {
 				+String.format("%-10s", votes)
                 +String.format("%s", reste)*/
                 +"\n");
+    }
+
+    // ++++++++++++++++++++++++++++++++++++++
+    // Getters
+    // ++++++++++++++++++++++++++++++++++++++
+    public String getTitle() {
+        return title;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public String getActors() {
+        return actors;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public float getAvg_vote() {
+        return avg_vote;
     }
 }
