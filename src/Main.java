@@ -50,8 +50,7 @@ public class Main {
                 3. Filtrer les données
                 4. Rechercher un film
                 5. Afficher les données 
-                6. Suppresion un à un
-                7. Sauvergarder
+                6. Suppresion un à un des films
                 ***************************************\n
                 """);
 
@@ -80,9 +79,6 @@ public class Main {
             case "6":
                 supprimerFilm(Films);
                 menuPrincipale(Films);
-                break;
-            case "7":
-                //sauvegarderFilms(Films);
                 break;
             default:
                 System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 6\n");
