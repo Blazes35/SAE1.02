@@ -13,7 +13,25 @@ public class Main {
         System.out.println();
         List<Film> Films = new LinkedList<>();
         List<Film> Films2 = new ArrayList<>();
-        menuPrincipale(Films2);
+        System.out.println("""
+            Bienvenue dans le programme de tri de films
+            Comment désirez vous stocker les données :
+            1. LinkedList
+            2. ArrayList
+        """);
+        String choix = Clavier.lireString();
+        switch (choix) {
+            case "1":
+                menuPrincipale(Films);
+                break;
+            case "2":
+                menuPrincipale(Films2);
+                break;
+            default:
+                System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 2\n");
+                main(args);
+                break;
+        }
     }
 
     public static void affichageFilms(List<Film> Films) {
@@ -187,10 +205,13 @@ public class Main {
             """);
         int choix = Clavier.lireInt();
         ListIterator<Film> iterator = Films.listIterator();
+        long start = System.nanoTime();
         while (iterator.hasNext()) {
             iterator.next();
             iterator.remove();
         }
+        long stop = System.nanoTime();
+        System.out.println("Temps d'exécution : " + ((float) (stop - start)/1000000) + "ms");
     }
 
     public static void rechercherFilm(List<Film> Films) throws IOException {
