@@ -2,6 +2,7 @@ import java.util.List;
 
 public class Recherche {
     public static void rechercheLineaire(List<Film> Films, String valeur) {
+        long start = System.nanoTime();
         int i = 0;
         boolean trouve = false;
         while (i < Films.size() && !trouve) {
@@ -11,11 +12,14 @@ public class Recherche {
                 i++;
             }
         }
+        long stop = System.nanoTime();
+        System.out.println("Temps d'exécution : " + ((float) (stop - start)/1000000) + "ms");
         if (trouve) {
             System.out.println(Films.get(i));
         } else {
             System.out.println("Le film " + valeur + " n'est pas dans la liste");
         }
+
     }
 
     public static void rechercheDichotomique(List<Film> Films, int left, int right,String valeur) {

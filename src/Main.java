@@ -210,8 +210,10 @@ public class Main {
                 break;
             case "2":
                 Tri.triFusion(Films);
-                System.out.println("Tri effectué");
+                long start = System.nanoTime();
                 Recherche.rechercheDichotomique(Films, 0, Films.size()-1, valeur);
+                long stop = System.nanoTime();
+                System.out.println("Temps d'exécution : " + ((float) (stop - start)/1000000) + "ms");
                 break;
             default:
                 System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 2\n");

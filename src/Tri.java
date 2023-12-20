@@ -6,12 +6,20 @@ import java.util.List;
 public class Tri {
     public static void sortChooser(List<Film> Films) throws IOException {
         String choix = Clavier.lireString();
+        long start;
+        long end;
         switch (choix) {
             case "1":
+                start = System.nanoTime();
                 triFusion(Films);
+                end = System.nanoTime();
+                System.out.println("Temps d'exécution : " + ((float) (end - start)/1000000) + "ms");
                 break;
             case "2":
+                start = System.nanoTime();
                 triSelection(Films, Film.compareYear);
+                end = System.nanoTime();
+                System.out.println("Temps d'exécution : " + ((float) (end - start)/1000000) + "ms");
                 break;
             case "3":
                 triSelection(Films, Film.compareGenre);
@@ -32,7 +40,10 @@ public class Tri {
                 triSelection(Films, Film.compareVotes);
                 break;
             case "9":
+                start = System.nanoTime();
                 Films.sort(Film.compareTitle);
+                end = System.nanoTime();
+                System.out.println("Temps d'exécution : " + ((float) (end - start)/1000000) + "ms");
                 break;
             case "10":
                 Films.sort(Film.compareYear);

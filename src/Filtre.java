@@ -14,11 +14,11 @@ public class Filtre {
         String valeur = Clavier.lireLigne();
         int i = 0;
         for (Film Film : Films) {
-            if(!Film.getTitle().contains(valeur)){
+            if(!Film.getTitle().contains(valeur)) {
                 Films.remove(i);
-                i--;
+            }else{
+                i++;
             }
-            i++;
         }
     }
 
