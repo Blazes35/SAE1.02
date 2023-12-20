@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -11,7 +12,8 @@ public class Main {
     public static void main(String[] args) throws IOException  {
         System.out.println();
         List<Film> Films = new LinkedList<>();
-        menuPrincipale(Films);
+        List<Film> Films2 = new ArrayList<>();
+        menuPrincipale(Films2);
     }
 
     public static void affichageFilms(List<Film> Films) {
@@ -39,21 +41,18 @@ public class Main {
         switch (choix) {
             case "1":
                 chargerDonnees(Films);
-                affichageFilms(Films);
                 menuPrincipale(Films);
                 break;
             case "2":
                 triFilms(Films);
-                affichageFilms(Films);
                 menuPrincipale(Films);
                 break;
             case "3":
                 filtrerFilms(Films);
-                affichageFilms(Films);
                 menuPrincipale(Films);
                 break;
             case "4":
-                Recherche.rechercheLineaire(Films, Clavier.lireString());
+                rechercherFilm(Films);
                 menuPrincipale(Films);
                 break;
             case "5":
@@ -62,7 +61,6 @@ public class Main {
                 break;
             case "6":
                 supprimerFilm(Films);
-                affichageFilms(Films);
                 menuPrincipale(Films);
                 break;
             case "7":
@@ -192,6 +190,33 @@ public class Main {
         while (iterator.hasNext()) {
             iterator.next();
             iterator.remove();
+        }
+    }
+
+    public static void rechercherFilm(List<Film> Films) throws IOException {
+        System.out.println("""
+            \n***************************************
+            Comment souhaitez vous rechercher les informations :
+            1. Recherche linéaire
+            2. Recherche dichotomique
+            ***************************************\n
+            """);
+        String choix = Clavier.lireString();
+        System.out.println("Quel film souhaitez vous rechercher :");
+        String valeur = Clavier.lireLigne();
+        switch (choix) {
+            case "1":
+                Recherche.rechercheLineaire(Films, valeur);
+                break;
+            case "2":
+                Tri.triFusion(Films);
+                System.out.println("Tri effectué");
+                Recherche.rechercheDichotomique(Films, 0, Films.size()-1, valeur);
+                break;
+            default:
+                System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 2\n");
+                rechercherFilm(Films);
+                break;
         }
     }
 

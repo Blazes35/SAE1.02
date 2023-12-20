@@ -12,29 +12,47 @@ public class Filtre {
     public static void filterTitle(List<Film> Films) {
         System.out.println("Filtrer les films contenant: ");
         String valeur = Clavier.lireLigne();
-        Films.removeIf(f -> !f.getTitle().contains(valeur));
+        int i = 0;
+        for (Film Film : Films) {
+            if(!Film.getTitle().contains(valeur)){
+                Films.remove(i);
+                i--;
+            }
+            i++;
+        }
     }
 
     public static void filterYear(List<Film> Films) {
+        long start;
+        long stop;
         System.out.println(type);
         String choix = Clavier.lireString();
         switch (choix) {
             case "1":
                 System.out.println("Filtrer les films avant ou pendant l'année: ");
                 int valeur = Clavier.lireInt();
+                start  = System.nanoTime();
                 Films.removeIf(f -> f.getYear() > valeur);
+                stop = System.nanoTime();
+                System.out.println("Temps d'exécution : " + ((float) (stop - start)/1000000) + "ms");
                 break;
             case "2":
                 System.out.println("Filtrer les films après ou pendant l'année: ");
                 valeur = Clavier.lireInt();
+                start  = System.nanoTime();
                 Films.removeIf(f -> f.getYear() < valeur);
+                stop = System.nanoTime();
+                System.out.println("Temps d'exécution : " + ((float) (stop - start)/1000000) + "ms");
                 break;
             case "3":
                 System.out.println("Filtrer les films entre:\nAnnée 1: ");
                 int valeur1 = Clavier.lireInt();
                 System.out.println("Et\nAnnée 2: ");
                 int valeur2 = Clavier.lireInt();
+                start  = System.nanoTime();
                 Films.removeIf(f -> f.getYear() < valeur1 || f.getYear() > valeur2);
+                stop = System.nanoTime();
+                System.out.println("Temps d'exécution : " + ((float) (stop - start)/1000000) + "ms");
                 break;
             default:
                 System.out.println("Erreur de saisie veuillez rentrez un nombre entre 1 et 3\n");

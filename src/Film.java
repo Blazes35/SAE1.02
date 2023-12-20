@@ -106,8 +106,8 @@ public class Film {
     // Affichage
     // ++++++++++++++++++++++++++++++++++++++
     public String toString() {
-        return (String.format("%-20s", title)
-                +String.format("%-6s", year)
+        return (String.format("%s", title)
+                +String.format("%s", year)
                 +String.format("%-20s", genre)
                 +String.format("%-6s", duration)
                 +String.format("%-20s", country)
@@ -116,8 +116,6 @@ public class Film {
                 +String.format("%-20s", actors)
                 +String.format("%-20s", description)
                 +String.format("%-20s", avg_vote)
-                +String.format("%-10s", votes)
-                +String.format("%s", reste)
                 +"\n");
     }
 

@@ -18,7 +18,23 @@ public class Recherche {
         }
     }
 
-    public static void rechercheDichotomique(List<Film> Films, String valeur) {
+    public static void rechercheDichotomique(List<Film> Films, int left, int right,String valeur) {
+        int mid = (left + right) / 2;
+        if (left > right) {
+            System.out.println("""
+            Le film " + valeur + " n'est pas dans la liste
+            """);
 
+
+        }else {
+            int comparaison = Films.get(mid).getTitle().compareToIgnoreCase(valeur);
+            if (comparaison < 0) {
+                rechercheDichotomique(Films, mid + 1, right, valeur);
+            } else if (comparaison > 0) {
+                rechercheDichotomique(Films, left, mid - 1, valeur);
+            } else {
+                System.out.println(Films.get(mid));
+            }
+        }
     }
 }

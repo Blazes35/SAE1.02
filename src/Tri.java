@@ -45,6 +45,7 @@ public class Tri {
     }
 
     public static void triSelection(List<Film> films, Comparator<Film> comparator){
+        long star = System.nanoTime();
         int n = films.size();
         for (int i = 0; i < n-1; i++) {
             int min_idx = i;
@@ -58,6 +59,8 @@ public class Tri {
             films.set(min_idx, films.get(i));
             films.set(i, temp);
         }
+        long stop = System.nanoTime();
+        System.out.println("Temps d'exécution : " + ((float) (stop - star)/1000000) + "ms");
     }
 
     public static void triFusion(List<Film> films) {
