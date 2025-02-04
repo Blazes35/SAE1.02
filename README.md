@@ -7,10 +7,6 @@ Ce projet tutoré, développé en Java, semble se concentrer sur l'exploitation 
 - [Description](#description)
 - [Fonctionnalités](#fonctionnalités)
 - [Technologies utilisées](#technologies-utilisées)
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contributeurs](#contributeurs)
-- [Licence](#licence)
 
 ## Description
 
