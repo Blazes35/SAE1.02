@@ -26,3 +26,6 @@ Le projet **SAE1.02** est un projet tutoré réalisé en Java. Il exploite des j
 ## Technologies utilisées
 
 - **Java** – Langage de programmation principal utilisé pour développer ce projet.
+
+ ## Contributeurs
+- [Loris ADAM](https://github.com/Blazes35)
